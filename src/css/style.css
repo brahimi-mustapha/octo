@@ -1,0 +1,17 @@
+.octo-instagram-icon{
+
+  position: relative;
+  display: flex;
+
+  &__outer {
+    clip-path: url(#instagram-border-mask);
+    position: absolute;
+    top:0;
+    left: 0;
+  }
+
+  &__mask {
+    position: absolute;
+  }
+
+}

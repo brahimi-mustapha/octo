@@ -1,21 +1,18 @@
-import "./instagram-icon.css";
-
 import { randomNumber, isDOM, stringToHTML } from "../functions";
 
 class InstagramIcon {
 
+    static iconCssClass = "octo-instagram-icon"
     static allIcons = new Set();
-
     outerCircles = [];
-    icon = document.getElementById( "instagram-icon" );
+    icon = document.querySelector( ".octo-instagram-icon" );
     size = 500;
-
     
     middleRingleCircles = [];
-    middleRingRelativeX = 0.5;
-    middleRingRelativeY = 0.5;
-    middleRingMinRelativeRadius = 0.166;
-    middleRingMaxRelativeRadius = 0.258;
+    static middleRingRelativeX = 0.5;
+    static middleRingRelativeY = 0.5;
+    static middleRingMinRelativeRadius = 0.166;
+    static middleRingMaxRelativeRadius = 0.258;
     middleRingAccelerationX = 0.1;
     middleRingAccelerationY = 0.1;
     middleRingCirclesCount = 8;
@@ -50,7 +47,7 @@ class InstagramIcon {
         strokeStyle: "#ea7",
         lineWidth: 2,
     };
-    static borderSvgMask = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="499.888" viewBox="0 0 500 499.888">
+    static borderSvgMask = `<svg class="${ InstagramIcon.iconCssClass }__mask" xmlns="http://www.w3.org/2000/svg" width="0" height="0">
 
         <clipPath id="instagram-border-mask">
         <path d="M498.168,178.7c-1.9-40.045-11.043-75.516-40.379-104.741-29.225-29.225-64.7-38.371-104.741-40.379-41.272-2.342-164.975-2.342-206.247,0-39.933,1.9-75.4,11.043-104.741,40.268S3.69,138.546,1.682,178.59c-2.342,41.272-2.342,164.975,0,206.247,1.9,40.045,11.043,75.516,40.379,104.741s64.7,38.371,104.741,40.379c41.272,2.342,164.975,2.342,206.247,0,40.045-1.9,75.516-11.043,104.741-40.379,29.225-29.225,38.371-64.7,40.379-104.741,2.342-41.272,2.342-164.863,0-206.135ZM444.85,429.12a84.359,84.359,0,0,1-47.518,47.518c-32.906,13.051-110.987,10.039-147.351,10.039s-114.557,2.9-147.351-10.039A84.359,84.359,0,0,1,55.112,429.12C42.061,396.214,45.073,318.133,45.073,281.769s-2.9-114.557,10.039-147.351A84.359,84.359,0,0,1,102.63,86.9C135.536,73.85,213.617,76.861,249.981,76.861s114.557-2.9,147.351,10.039a84.359,84.359,0,0,1,47.518,47.518c13.051,32.906,10.039,110.987,10.039,147.351S457.9,396.326,444.85,429.12Z" transform="translate(0.075 -31.825)"/>
@@ -86,14 +83,13 @@ class InstagramIcon {
         } 
         
     
-    
         /** Generating Necessary Html Elements */
     
         const { size } = this;
 
         let innerCanvas = document.createElement( 'canvas' );
 
-        innerCanvas.classList.add( "instagram-icon__inner" );
+        innerCanvas.classList.add( `${ InstagramIcon.iconCssClass }__inner` );
 
         innerCanvas.setAttribute( "height", size );
         innerCanvas.setAttribute( "width", size );
@@ -105,7 +101,7 @@ class InstagramIcon {
 
         let outerCanvas = document.createElement( 'canvas' );
 
-        outerCanvas.classList.add( "instagram-icon__outer" );
+        outerCanvas.classList.add( `${ InstagramIcon.iconCssClass }__outer` );
 
         outerCanvas.setAttribute( "height", size );
         outerCanvas.setAttribute( "width", size );
@@ -113,7 +109,6 @@ class InstagramIcon {
         this.outerCanvas = outerCanvas;
 
         icon.appendChild( this.outerCanvas );
-        
 
         this.draw();
 
@@ -197,14 +192,17 @@ class InstagramIcon {
 
         const { 
             size,
-            middleRingRelativeX,
-            middleRingRelativeY,
-            middleRingMinRelativeRadius,
-            middleRingMaxRelativeRadius,
             middleRingAccelerationX,
             middleRingAccelerationY,
             middleRingCirclesCount,
         } = this;
+
+        const {
+            middleRingRelativeX,
+            middleRingRelativeY,
+            middleRingMinRelativeRadius,
+            middleRingMaxRelativeRadius,
+        } = InstagramIcon;
 
         
         /** Generating Middle Ring Circles */

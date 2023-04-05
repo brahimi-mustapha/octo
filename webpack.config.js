@@ -17,12 +17,12 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
 
     ],
   },
 
   mode: 'production',
-  devtool: 'source-map',
+ // devtool: 'source-map',
 };
