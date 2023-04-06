@@ -14,12 +14,12 @@ class InstagramIcon {
     static middleRingRelativeY = 0.5;
     static middleRingMinRelativeRadius = 0.166;
     static middleRingMaxRelativeRadius = 0.258;
-    middleRingAccelerationX = 0.1;
-    middleRingAccelerationY = 0.1;
-    middleRingCirclesCount = 25;
+    middleRingAccelerationX = 0.025;
+    middleRingAccelerationY = 0.025;
+    middleRingCirclesCount = 15;
     middleRingContextProperties = {
-        strokeStyle: "#dddddd",
-        lineWidth: 2,
+        strokeStyle: "rgba(255,255,255,.5)",
+        lineWidth: 1,
     };
 
 
@@ -28,12 +28,12 @@ class InstagramIcon {
     upRightCircleMaxRelativeRadius = 0.062;
     upRightCircleRelativeX = 1 - 0.232;
     upRightCircleRelativeY = 0.232;
-    upRightCircleAccelerationX = 0.1;
-    upRightCircleAccelerationY = 0.1;
-    upRightCircleCirclesCount = 25;
+    upRightCircleAccelerationX = 0.025;
+    upRightCircleAccelerationY = 0.025;
+    upRightCircleCirclesCount = 15;
     upRightCircleContextProperties = {
-        strokeStyle: "#eee",
-        lineWidth: 2,
+        strokeStyle: "rgba(255,255,255,.5)",
+        lineWidth: 1,
     };
 
 
@@ -41,12 +41,12 @@ class InstagramIcon {
     borderMaxRelativeRadius = 0.09;
     borderRelativeDistance = 0.5;
     borderRelativeSecondaryDistance = 0.152;
-    borderCirclesCount = 150;
-    borderAccelerationX = 0.25;
-    borderAccelerationY = 0.25;
+    borderCirclesCount = 250;
+    borderAccelerationX = 0.05;
+    borderAccelerationY = 0.05;
     borderContextProperties = {
-        strokeStyle: "#eee",
-        lineWidth: 2,
+        strokeStyle: "rgba(255,255,255, 0.5)",
+        lineWidth: 1,
     };
     static borderSvgMask = `<svg class="${ InstagramIcon.iconCssClass }__mask" xmlns="http://www.w3.org/2000/svg" height="0" width="0">
 
