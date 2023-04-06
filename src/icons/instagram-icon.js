@@ -348,12 +348,6 @@ class InstagramIcon {
 
             let boundariesX = ( refX == borderRelativeDistance ? refX : borderRelativeSecondaryDistance ) * size - randomCircleRaduis;
             let boundariesY = ( refY == borderRelativeDistance ? refY : borderRelativeSecondaryDistance ) * size - randomCircleRaduis;
-
-            console.log( 
-                refX * size,
-                refY * size,
-                ( refX == borderRelativeDistance ? refX : borderRelativeSecondaryDistance ) * size, ( refY == borderRelativeDistance ? refY : borderRelativeSecondaryDistance ) * size );
-
             let positioningX = randomNumber( -boundariesX, boundariesX );
             let positioningY = randomNumber( -boundariesY, boundariesY );
 
