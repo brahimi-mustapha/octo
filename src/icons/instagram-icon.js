@@ -141,7 +141,7 @@ class InstagramIcon {
                 boundaries = circle.boundaries;
             }
 
-            if( circle.x > circle.refX + boundaries.x || circle.x < circle.refX - boundaries.y ) {
+            if( circle.x > circle.refX + boundaries.x || circle.x < circle.refX - boundaries.x ) {
                 circle.ax = -circle.ax;
             }
 
@@ -349,11 +349,19 @@ class InstagramIcon {
             let boundariesX = ( refX == borderRelativeDistance ? refX : borderRelativeSecondaryDistance ) * size - randomCircleRaduis;
             let boundariesY = ( refY == borderRelativeDistance ? refY : borderRelativeSecondaryDistance ) * size - randomCircleRaduis;
 
+            console.log( 
+                refX * size,
+                refY * size,
+                ( refX == borderRelativeDistance ? refX : borderRelativeSecondaryDistance ) * size, ( refY == borderRelativeDistance ? refY : borderRelativeSecondaryDistance ) * size );
+
             let positioningX = randomNumber( -boundariesX, boundariesX );
             let positioningY = randomNumber( -boundariesY, boundariesY );
 
             refX *= size;
             refY *= size;
+
+
+            
 
             this.outerCircles.push({
 
