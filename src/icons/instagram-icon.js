@@ -3,9 +3,9 @@ import { randomNumber, isDOM, stringToHTML } from "../functions";
 class InstagramIcon {
 
     static iconCssClass = "octo-instagram-icon"
-    static allIcons = new Set();
-    outerCircles = [];
+    static allIcons = new Map();
     icon = document.querySelector( ".octo-instagram-icon" );
+    
     size = 500;
     animationState = true;
     
@@ -14,12 +14,12 @@ class InstagramIcon {
     static middleRingRelativeY = 0.5;
     static middleRingMinRelativeRadius = 0.166;
     static middleRingMaxRelativeRadius = 0.258;
-    middleRingAccelerationX = 0.025;
-    middleRingAccelerationY = 0.025;
-    middleRingCirclesCount = 15;
+    middleRingAccelerationX = 0.05;
+    middleRingAccelerationY = 0.05;
+    middleRingCirclesCount = 20;
     middleRingContextProperties = {
-        strokeStyle: "rgba(255,255,255,.5)",
-        lineWidth: 1,
+        strokeStyle: "rgba(255,255,255,0.8)",
+        lineWidth: 2,
     };
 
 
@@ -30,23 +30,24 @@ class InstagramIcon {
     upRightCircleRelativeY = 0.232;
     upRightCircleAccelerationX = 0.025;
     upRightCircleAccelerationY = 0.025;
-    upRightCircleCirclesCount = 15;
+    upRightCircleCirclesCount = 20;
     upRightCircleContextProperties = {
-        strokeStyle: "rgba(255,255,255,.5)",
-        lineWidth: 1,
+        strokeStyle: "rgba(255,255,255,0.8)",
+        lineWidth: 2,
     };
 
 
+    outerCircles = [];
     borderMinRelativeRadius = 0;
     borderMaxRelativeRadius = 0.09;
     borderRelativeDistance = 0.5;
     borderRelativeSecondaryDistance = 0.152;
-    borderCirclesCount = 250;
+    borderCirclesCount = 350;
     borderAccelerationX = 0.05;
     borderAccelerationY = 0.05;
     borderContextProperties = {
-        strokeStyle: "rgba(255,255,255, 0.5)",
-        lineWidth: 1,
+        strokeStyle: "rgba(255,255,255, .8)",
+        lineWidth: 2,
     };
     static borderSvgMask = `<svg class="${ InstagramIcon.iconCssClass }__mask" xmlns="http://www.w3.org/2000/svg" height="0" width="0">
 
@@ -72,7 +73,7 @@ class InstagramIcon {
         if( InstagramIcon.allIcons.has( icon ) ) { 
             return null;
         }
-        InstagramIcon.allIcons.add( icon );
+        InstagramIcon.allIcons.set( icon, this );
 
 
         /** Setting Size */
@@ -191,6 +192,11 @@ class InstagramIcon {
     }
 
     draw() {
+
+        this.middleRingleCircles = [];
+        this.upRightCircleCircles = [];
+        this.outerCircles = [];
+    
 
         const { 
             size,
@@ -414,6 +420,11 @@ class InstagramIcon {
 
     }
 
+    static getInstance( htmlIcon = false ) {
+
+        return InstagramIcon.allIcons.get( htmlIcon );
+
+    }
 
     static init() {
         
